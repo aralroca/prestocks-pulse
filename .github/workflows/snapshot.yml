@@ -1,0 +1,31 @@
+name: snapshot
+
+on:
+  schedule:
+    - cron: "7 * * * *" # hourly, builds the open PreStocks dataset
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run snapshot
+      - name: Commit dataset
+        run: |
+          git config user.name "prestocks-pulse-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/data
+          git diff --cached --quiet || git commit -m "data: hourly PreStocks snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push

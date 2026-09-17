@@ -1,0 +1,25 @@
+{
+  "name": "prestocks-pulse",
+  "version": "0.1.0",
+  "description": "Open data layer, analytics dashboard and MCP server for PreStocks tokenized pre-IPO stocks on Solana",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "prestocks-pulse-mcp": "./bin/mcp.js" },
+  "files": ["bin", "src"],
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "build": "bun build src/web/app.ts --outfile docs/app.js --minify --target browser",
+    "snapshot": "bun run src/snapshot.ts",
+    "mcp": "bun run src/mcp/main.ts",
+    "dev": "bun run build && bunx serve docs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.9.0"
+  }
+}
