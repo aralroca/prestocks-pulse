@@ -5,20 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PreStocks Pulse</title>
   <meta name="description" content="Open data layer, premium radar, PRE8 index, creation/redemption flows and an MCP server for PreStocks tokenized pre-IPO stocks on Solana." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📡</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230a0a0a'/><circle cx='50' cy='50' r='18' fill='%232567ff'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="hero">
-    <div class="brand">📡 PreStocks <span>Pulse</span></div>
-    <p class="tagline">The open data layer for tokenized pre-IPO stocks on Solana. Premium radar · PRE8 index · creation/redemption flows · executable prices · MCP server for AI agents.</p>
+    <span class="eyebrow"><span class="dot"></span>Open data layer · Solana · live</span>
+    <h1>PreStocks <em>Pulse</em></h1>
+    <p class="tagline">Premium radar, PRE8 index, creation/redemption flows and split-aware executable prices for tokenized pre-IPO stocks, plus an MCP server so AI agents can use them.</p>
     <nav class="links">
-      <a href="https://github.com/aralroca/prestocks-pulse" target="_blank" rel="noopener">GitHub</a>
-      <a href="data/history.json" target="_blank">Open dataset</a>
-      <a href="#mcp">MCP server</a>
-      <a href="https://prestocks.com" target="_blank" rel="noopener">prestocks.com</a>
+      <a class="pill primary" href="https://github.com/aralroca/prestocks-pulse" target="_blank" rel="noopener">GitHub</a>
+      <a class="pill" href="data/history.json" target="_blank">Open dataset</a>
+      <a class="pill" href="#mcp">MCP server</a>
+      <a class="pill" href="https://prestocks.com" target="_blank" rel="noopener">prestocks.com</a>
     </nav>
   </header>
 
@@ -56,7 +57,7 @@
     <div class="panel-head"><h2>Talk to PreStocks from your AI agent</h2><p>Pulse ships an MCP server: Claude, Cursor or any MCP client can list, research, rank, quote and build baskets of PreStocks in natural language.</p></div>
     <pre><code>{
   "mcpServers": {
-    "prestocks-pulse": { "command": "bunx", "args": ["github:aralroca/prestocks-pulse"] }
+    "prestocks-pulse": { "command": "npx", "args": ["-y", "github:aralroca/prestocks-pulse"] }
   }
 }</code></pre>
     <ul class="tools" id="tools"></ul>

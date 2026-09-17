@@ -5,8 +5,8 @@ import { lineChart, sparkline } from "./charts.ts";
 import { ago, compact, money, pct, tone } from "./format.ts";
 import type { Live } from "./data.ts";
 
-const UP = "#2fd48c";
-const DOWN = "#ff5c7a";
+const UP = "#0a7d2f";
+const DOWN = "#b63a2e";
 
 function el(id: string): HTMLElement {
   return document.getElementById(id)!;
@@ -89,7 +89,7 @@ export function renderIndex(history: History): void {
   const weights = base ? valuationWeights(base) : {};
   const chips = Object.entries(weights).sort((a, b) => b[1] - a[1]).map(([sym, w]) => `<span>${sym} ${(w * 100).toFixed(1)}%</span>`);
 
-  el("index-chart").innerHTML = lineChart(series.map((p) => p.level), series.map((p) => p.t), "#7c5cff");
+  el("index-chart").innerHTML = lineChart(series.map((p) => p.level), series.map((p) => p.t), "#2567ff");
   el("weights").innerHTML = chips.join("");
 }
 
